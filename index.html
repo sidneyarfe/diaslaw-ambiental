@@ -110,28 +110,25 @@ section{padding:96px 0}
 .service-card:hover{background:var(--surface2)}
 .service-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 
-/* Casos reais — dois cards */
-.cases-header{text-align:center;max-width:640px;margin:0 auto 56px}
-.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.case-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;position:relative}
-.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
-.case-card-before{padding:28px 32px 24px;border-bottom:1px solid var(--border)}
-.case-card-label{font-family:'Inter',sans-serif;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.case-card-label--muted{color:var(--text-muted)}
-.case-card-label--gold{color:var(--gold)}
-.case-card-value{font-family:'Cormorant',Georgia,serif;font-size:clamp(32px,3.5vw,48px);font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:10px}
-.case-card-value--muted{color:var(--text-sec)}
-.case-card-value--gold{color:var(--gold)}
-.case-card-desc{font-size:13.5px;color:var(--text-muted);line-height:1.7}
-.case-card-arrow{display:flex;align-items:center;gap:10px;padding:14px 32px;background:var(--bg2)}
-.case-card-arrow::before,.case-card-arrow::after{content:'';flex:1;height:1px;background:var(--border)}
-.case-card-arrow-icon{width:30px;height:30px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.case-card-after{padding:24px 32px 20px;flex:1;display:flex;flex-direction:column}
-.case-card-tagline{font-size:14.5px;color:var(--text);line-height:1.6;margin-bottom:16px;font-weight:400}
-.case-card-narrative{font-size:13.5px;color:var(--text-sec);line-height:1.8;flex:1}
-.case-card-badge{margin:24px 32px 28px;display:flex;align-items:center;gap:10px;background:var(--green-deep);border:1px solid var(--border-green);border-radius:4px;padding:13px 18px}
-.case-card-badge svg{color:var(--green-light);flex-shrink:0}
-.case-card-badge span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light)}
+/* Resultados recentes */
+.results-header{text-align:center;max-width:600px;margin:0 auto 56px}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.rc{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.rc-top{padding:32px 32px 28px;border-bottom:1px solid var(--border)}
+.rc-eyebrow{font-family:'Inter',sans-serif;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rc-eyebrow::before{content:'';width:20px;height:1px;background:var(--gold-muted)}
+.rc-headline{font-family:'Cormorant',Georgia,serif;font-size:clamp(22px,2.2vw,30px);font-weight:700;line-height:1.2;letter-spacing:-.01em;color:var(--text)}
+.rc-body{padding:0 32px;flex:1;display:flex;flex-direction:column;gap:0}
+.rc-section{padding:22px 0;border-bottom:1px solid var(--border)}
+.rc-section:last-of-type{border-bottom:none}
+.rc-label{font-family:'Inter',sans-serif;font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.rc-label--muted{color:var(--text-muted)}
+.rc-label--gold{color:var(--gold)}
+.rc-text--muted{font-size:14px;color:var(--text-muted);line-height:1.75}
+.rc-text--main{font-size:14.5px;color:var(--text-sec);line-height:1.8}
+.rc-badge{margin:0 32px 28px;display:flex;align-items:center;gap:9px;background:var(--green-deep);border:1px solid var(--border-green);border-radius:4px;padding:12px 16px}
+.rc-badge svg{color:var(--green-light);flex-shrink:0}
+.rc-badge span{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light)}
 
 /* Sobre */
 .about-grid{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start}
@@ -201,7 +198,7 @@ footer a:hover{color:var(--gold)}
 @media(max-width:1024px){
   .footer-grid{grid-template-columns:1fr}
   .porque-grid{grid-template-columns:1fr}
-  .cases-grid{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:1fr}
   .location-grid{grid-template-columns:1fr}
   .location-map{min-height:280px}
   .location-map iframe{min-height:280px}
@@ -428,81 +425,71 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
-<!-- S4: RESULTADOS REAIS — dois cards -->
-<section style="background:var(--bg2)" aria-labelledby="casos-heading">
+<!-- S4: RESULTADOS RECENTES -->
+<section style="background:var(--bg2)" aria-labelledby="resultados-heading">
   <div class="section-inner">
-    <div class="cases-header reveal">
-      <span class="section-tag" style="justify-content:center">RESULTADOS REAIS</span>
-      <h2 id="casos-heading" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:12px">
-        Do auto de infração ao arquivamento
+    <div class="results-header reveal">
+      <span class="section-tag" style="justify-content:center">Resultados recentes</span>
+      <h2 id="resultados-heading" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:12px">
+        Casos reais. Resultados concretos.
       </h2>
-      <p style="color:var(--text-sec);font-size:15px;line-height:1.7">Casos reais. Resultados documentados. Nomes preservados por sigilo profissional.</p>
+      <p style="color:var(--text-sec);font-size:15px;line-height:1.7">Identidades preservadas por sigilo profissional.</p>
     </div>
 
-    <div class="cases-grid">
+    <div class="results-grid">
 
       <!-- Card 1 -->
-      <div class="case-card reveal">
-        <div class="case-card-before">
-          <div class="case-card-label case-card-label--muted">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Situação inicial
-          </div>
-          <div class="case-card-value case-card-value--muted">R$&thinsp;5,7&thinsp;mi</div>
-          <p class="case-card-desc">Auto de infração do IBAMA por desmatamento ilegal no Sudeste do Pará, comprometendo a operação e o caixa do produtor rural.</p>
+      <div class="rc reveal">
+        <div class="rc-top">
+          <p class="rc-eyebrow">Caso 01</p>
+          <h3 class="rc-headline">Multa de R$&thinsp;5,7 mi anulada</h3>
         </div>
-
-        <div class="case-card-arrow">
-          <div class="case-card-arrow-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0804" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        <div class="rc-body">
+          <div class="rc-section">
+            <p class="rc-label rc-label--muted">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Situação inicial
+            </p>
+            <p class="rc-text--muted">Produtor rural autuado pelo IBAMA por suposto desmatamento ilegal no Sudeste do Pará.</p>
+          </div>
+          <div class="rc-section">
+            <p class="rc-label rc-label--gold">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Resultado obtido
+            </p>
+            <p class="rc-text--main">Análise técnica identificou diversas falhas no auto de infração. Multa de R$&thinsp;5,7 milhões anulada integralmente. Nenhum centavo precisou ser pago, nenhum passivo remanescente.</p>
           </div>
         </div>
-
-        <div class="case-card-after">
-          <div class="case-card-label case-card-label--gold">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Resultado obtido
-          </div>
-          <div class="case-card-value case-card-value--gold">R$&thinsp;0</div>
-          <p class="case-card-tagline">Multa de R$ 5,7 milhões extinta. Produtor rural saiu sem pagar um centavo.</p>
-          <p class="case-card-narrative">Multa anulada integralmente após identificação de vício formal no auto de infração. Processo administrativo encerrado sem qualquer ônus ao cliente.</p>
-        </div>
-
-        <div class="case-card-badge">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="rc-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           <span>Processo encerrado</span>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="case-card reveal" style="transition-delay:.12s">
-        <div class="case-card-before">
-          <div class="case-card-label case-card-label--muted">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Situação inicial
-          </div>
-          <div class="case-card-value case-card-value--muted" style="font-size:clamp(24px,2.8vw,38px)">Operação<br>suspensa</div>
-          <p class="case-card-desc">Inquérito civil instaurado pelo Ministério Público ameaçava o encerramento definitivo das atividades de uma granja no Nordeste do Pará, com risco de interdição imediata.</p>
+      <div class="rc reveal" style="transition-delay:.1s">
+        <div class="rc-top">
+          <p class="rc-eyebrow">Caso 02</p>
+          <h3 class="rc-headline">Granja salva de fechar as portas</h3>
         </div>
-
-        <div class="case-card-arrow">
-          <div class="case-card-arrow-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0804" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        <div class="rc-body">
+          <div class="rc-section">
+            <p class="rc-label rc-label--muted">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              Situação inicial
+            </p>
+            <p class="rc-text--muted">Inquérito civil instaurado pelo Ministério Público contra granja no Nordeste do Pará, com risco concreto de interdição e encerramento das atividades.</p>
+          </div>
+          <div class="rc-section">
+            <p class="rc-label rc-label--gold">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Resultado obtido
+            </p>
+            <p class="rc-text--main">Defesa técnica afastou as irregularidades imputadas e levou ao arquivamento do inquérito. A granja segue operando normalmente, sem restrições e sem risco jurídico pendente.</p>
           </div>
         </div>
-
-        <div class="case-card-after">
-          <div class="case-card-label case-card-label--gold">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Resultado obtido
-          </div>
-          <div class="case-card-value case-card-value--gold" style="font-size:clamp(28px,3vw,42px)">Arquivado</div>
-          <p class="case-card-tagline">Granja ameaçada de fechar as portas. Inquérito do MP arquivado, operação salva.</p>
-          <p class="case-card-narrative">Após atuação técnica da Dias Advocacia, o inquérito civil foi arquivado pelo Ministério Público. A granja retomou suas atividades normalmente, sem restrições operacionais.</p>
-        </div>
-
-        <div class="case-card-badge">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="rc-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           <span>Inquérito arquivado</span>
         </div>
       </div>
