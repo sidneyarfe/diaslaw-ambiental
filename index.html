@@ -110,28 +110,28 @@ section{padding:96px 0}
 .service-card:hover{background:var(--surface2)}
 .service-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 
-/* Caso real — redesigned */
-.case-header{text-align:center;max-width:640px;margin:0 auto 56px}
-.case-comparison{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:48px}
-.case-panel{padding:40px 36px}
-.case-panel-before{background:var(--surface);border-right:1px solid var(--border)}
-.case-panel-after{background:linear-gradient(135deg,rgba(26,18,8,.9),rgba(34,26,14,.95))}
-.case-panel-label{font-family:'Inter',sans-serif;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.case-panel-before .case-panel-label{color:var(--text-muted)}
-.case-panel-after .case-panel-label{color:var(--gold)}
-.case-panel-value{font-family:'Cormorant',Georgia,serif;font-size:clamp(36px,4vw,56px);font-weight:700;line-height:1;margin-bottom:16px;letter-spacing:-.02em}
-.case-panel-before .case-panel-value{color:var(--text-sec)}
-.case-panel-after .case-panel-value{color:var(--gold)}
-.case-panel-desc{font-size:14px;color:var(--text-sec);line-height:1.7}
-.case-panel-after .case-panel-desc{color:var(--text)}
-.case-divider{display:flex;align-items:center;justify-content:center;background:var(--surface);width:56px;position:relative}
-.case-divider::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--border)}
-.case-divider-icon{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
-.case-result-strip{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px;border:1px solid var(--border-gold);border-radius:4px;background:var(--surface)}
-.case-result-strip svg{color:var(--green-accent);flex-shrink:0}
-.case-result-strip span{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green-accent)}
-.case-narrative{color:var(--text-sec);font-size:15px;line-height:1.85;max-width:800px;margin:32px auto 0;text-align:center}
-.case-note{color:var(--text-muted);font-size:13px;font-style:italic;text-align:center;margin-top:16px}
+/* Casos reais — dois cards */
+.cases-header{text-align:center;max-width:640px;margin:0 auto 56px}
+.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.case-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.case-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.case-card-before{padding:28px 32px 24px;border-bottom:1px solid var(--border)}
+.case-card-label{font-family:'Inter',sans-serif;font-weight:700;font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.case-card-label--muted{color:var(--text-muted)}
+.case-card-label--gold{color:var(--gold)}
+.case-card-value{font-family:'Cormorant',Georgia,serif;font-size:clamp(32px,3.5vw,48px);font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:10px}
+.case-card-value--muted{color:var(--text-sec)}
+.case-card-value--gold{color:var(--gold)}
+.case-card-desc{font-size:13.5px;color:var(--text-muted);line-height:1.7}
+.case-card-arrow{display:flex;align-items:center;gap:10px;padding:14px 32px;background:var(--bg2)}
+.case-card-arrow::before,.case-card-arrow::after{content:'';flex:1;height:1px;background:var(--border)}
+.case-card-arrow-icon{width:30px;height:30px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.case-card-after{padding:24px 32px 20px;flex:1;display:flex;flex-direction:column}
+.case-card-tagline{font-size:14.5px;color:var(--text);line-height:1.6;margin-bottom:16px;font-weight:400}
+.case-card-narrative{font-size:13.5px;color:var(--text-sec);line-height:1.8;flex:1}
+.case-card-badge{margin:24px 32px 28px;display:flex;align-items:center;gap:10px;background:var(--green-deep);border:1px solid var(--border-green);border-radius:4px;padding:13px 18px}
+.case-card-badge svg{color:var(--green-light);flex-shrink:0}
+.case-card-badge span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-light)}
 
 /* Sobre */
 .about-grid{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start}
@@ -201,11 +201,7 @@ footer a:hover{color:var(--gold)}
 @media(max-width:1024px){
   .footer-grid{grid-template-columns:1fr}
   .porque-grid{grid-template-columns:1fr}
-  .case-comparison{grid-template-columns:1fr;gap:0}
-  .case-divider{width:100%;height:48px;flex-direction:row}
-  .case-divider::before{top:50%;bottom:auto;left:0;right:0;width:100%;height:1px}
-  .case-divider-icon svg{transform:rotate(90deg)}
-  .case-panel-before{border-right:none;border-bottom:1px solid var(--border)}
+  .cases-grid{grid-template-columns:1fr}
   .location-grid{grid-template-columns:1fr}
   .location-map{min-height:280px}
   .location-map iframe{min-height:280px}
@@ -226,8 +222,9 @@ footer a:hover{color:var(--gold)}
   .hero-btns .btn-primary,.hero-btns .btn-ghost{width:100%;justify-content:center;max-width:340px}
   #hero{padding:120px 18px 72px;min-height:auto}
   .hero-content h1{font-size:clamp(30px,8vw,42px)}
-  .case-panel{padding:28px 24px}
-  .case-header{margin-bottom:36px}
+  .cases-header{margin-bottom:36px}
+  .case-card-before,.case-card-after{padding:22px 24px}
+  .case-card-badge{margin:20px 24px 24px}
   .modal-box{padding:28px 22px;margin:12px}
   .modal-title{font-size:24px}
   .location-card{padding:28px 22px}
@@ -237,7 +234,7 @@ footer a:hover{color:var(--gold)}
 }
 @media(max-width:480px){
   .hero-content h1{font-size:28px}
-  .case-panel-value{font-size:28px}
+
   .hero-subtitle{font-size:15px}
   .hero-content p.sub{font-size:13.5px}
   .porque-metrics{grid-template-columns:1fr}
@@ -250,9 +247,7 @@ footer a:hover{color:var(--gold)}
   .btn-ghost{padding:12px 20px;font-size:12px}
   #contato h2{font-size:clamp(36px,10vw,56px)}
   .faq-btn{font-size:14px;padding:18px 0}
-  .case-comparison{border-radius:4px}
-  .case-divider{height:40px}
-  .case-divider-icon{width:34px;height:34px}
+
   footer{padding:40px 18px 24px}
 }
 </style>
@@ -433,56 +428,86 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
-<!-- S4: CASO REAL — REDESIGNED -->
-<section style="background:var(--bg2)" aria-labelledby="caso-heading">
+<!-- S4: RESULTADOS REAIS — dois cards -->
+<section style="background:var(--bg2)" aria-labelledby="casos-heading">
   <div class="section-inner">
-    <div class="case-header reveal">
-      <span class="section-tag" style="justify-content:center">RESULTADO REAL</span>
-      <h2 id="caso-heading" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:12px">
+    <div class="cases-header reveal">
+      <span class="section-tag" style="justify-content:center">RESULTADOS REAIS</span>
+      <h2 id="casos-heading" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:12px">
         Do auto de infração ao arquivamento
       </h2>
-      <p style="color:var(--text-sec);font-size:15px;line-height:1.7">Veja como transformamos uma autuação milionária em resultado favorável para nosso cliente.</p>
+      <p style="color:var(--text-sec);font-size:15px;line-height:1.7">Casos reais. Resultados documentados. Nomes preservados por sigilo profissional.</p>
     </div>
 
-    <div class="case-comparison reveal">
-      <!-- Before -->
-      <div class="case-panel case-panel-before">
-        <div class="case-panel-label">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          Situação inicial
+    <div class="cases-grid">
+
+      <!-- Card 1 -->
+      <div class="case-card reveal">
+        <div class="case-card-before">
+          <div class="case-card-label case-card-label--muted">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Situação inicial
+          </div>
+          <div class="case-card-value case-card-value--muted">R$&thinsp;5,7&thinsp;mi</div>
+          <p class="case-card-desc">Auto de infração do IBAMA por desmatamento ilegal no Sudeste do Pará, comprometendo a operação e o caixa do produtor rural.</p>
         </div>
-        <div class="case-panel-value">R$&thinsp;5,7&thinsp;mi</div>
-        <p class="case-panel-desc">Auto de infração do IBAMA por desmatamento ilegal no Sudeste do Pará, comprometendo a operação e o caixa do produtor rural.</p>
+
+        <div class="case-card-arrow">
+          <div class="case-card-arrow-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0804" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+
+        <div class="case-card-after">
+          <div class="case-card-label case-card-label--gold">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Resultado obtido
+          </div>
+          <div class="case-card-value case-card-value--gold">R$&thinsp;0</div>
+          <p class="case-card-tagline">Multa de R$ 5,7 milhões extinta. Produtor rural saiu sem pagar um centavo.</p>
+          <p class="case-card-narrative">Multa anulada integralmente após identificação de vício formal no auto de infração. Processo administrativo encerrado sem qualquer ônus ao cliente.</p>
+        </div>
+
+        <div class="case-card-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Processo encerrado</span>
+        </div>
       </div>
 
-      <!-- Divider arrow -->
-      <div class="case-divider">
-        <div class="case-divider-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0804" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <!-- Card 2 -->
+      <div class="case-card reveal" style="transition-delay:.12s">
+        <div class="case-card-before">
+          <div class="case-card-label case-card-label--muted">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Situação inicial
+          </div>
+          <div class="case-card-value case-card-value--muted" style="font-size:clamp(24px,2.8vw,38px)">Operação<br>suspensa</div>
+          <p class="case-card-desc">Inquérito civil instaurado pelo Ministério Público ameaçava o encerramento definitivo das atividades de uma granja no Nordeste do Pará, com risco de interdição imediata.</p>
+        </div>
+
+        <div class="case-card-arrow">
+          <div class="case-card-arrow-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0804" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+
+        <div class="case-card-after">
+          <div class="case-card-label case-card-label--gold">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Resultado obtido
+          </div>
+          <div class="case-card-value case-card-value--gold" style="font-size:clamp(28px,3vw,42px)">Arquivado</div>
+          <p class="case-card-tagline">Granja ameaçada de fechar as portas. Inquérito do MP arquivado, operação salva.</p>
+          <p class="case-card-narrative">Após atuação técnica da Dias Advocacia, o inquérito civil foi arquivado pelo Ministério Público. A granja retomou suas atividades normalmente, sem restrições operacionais.</p>
+        </div>
+
+        <div class="case-card-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Inquérito arquivado</span>
         </div>
       </div>
 
-      <!-- After -->
-      <div class="case-panel case-panel-after">
-        <div class="case-panel-label">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Resultado obtido
-        </div>
-        <div class="case-panel-value">R$&thinsp;0</div>
-        <p class="case-panel-desc">Multa de R$ 5,7 milhões anulada integralmente. Processo administrativo encerrado sem qualquer ônus ao cliente.</p>
-      </div>
     </div>
-
-    <!-- Result strip -->
-    <div class="case-result-strip reveal">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      <span>Processo encerrado</span>
-    </div>
-
-    <!-- Narrative -->
-    <p class="case-narrative reveal">
-      Um produtor rural do Sudeste do Pará foi autuado pelo IBAMA por suposto desmatamento ilegal, com multa de R$ 5,7 milhões que ameaçava inviabilizar a propriedade. Após análise detalhada dos autos, a equipe Dias Law identificou falhas formais no procedimento de fiscalização e ausência de provas suficientes para sustentar a infração. A defesa administrativa construída resultou na anulação total da multa.
-    </p>
   </div>
 </section>
 
